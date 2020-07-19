@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://z4cope:Mm012262900458793@cluster0.xbmna.mongodb.net/todolistDB?retryWrites=true&w=majority", { useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://z4cope:Mm012262900458793@cluster0.xbmna.mongodb.net/todolistDB?retryWrites=true&w=majority", { useUnifiedTopology: true, useNewUrlParser: true});
 
 
 
@@ -150,7 +150,7 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
 }
-app.listen(port);
+
 
 
 app.listen(port, function () {
