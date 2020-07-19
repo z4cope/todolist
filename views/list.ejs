@@ -1,0 +1,30 @@
+<%- include("header") -%>
+
+  <div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+  </div>
+
+  <div class="box">
+
+    <form action="/delete" method="post">
+      <% newListItems.forEach(function(item){ %>
+        <div class="item">
+          <input type="checkbox" name ="checkbox" value="<%= item._id %>" onChange="this.form.submit()">
+          <p><%=  item.name %></p>
+        </div>
+        <% }) %>
+        <input type="hidden" name="hiddenInput" value="<%= listTitle %>">
+    </form>
+    
+
+      <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value="<%= listTitle %>">+</button>
+      </form>
+  </div>
+
+  <div class="tip">
+    <h3>If you wanna creat a custom list with a unique name add a <span class="tip-hint">/(YOUR LIST NAME)</span> after the URL</h3>
+  </div>
+
+<%- include("footer") -%>
